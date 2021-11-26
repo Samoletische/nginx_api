@@ -1,59 +1,30 @@
-// index.js
-// This is the main entry point of our application
-require('dotenv').load();
+require('dotenv').config({ path: './src/.env' });
 const express = require("express");
+const helmet = require('helmet');
+const cors = require('cors');
 const app = express();
-
-console.log(process.env);
+app.use(helmet());
+app.use(cors());
 
 const port = process.env.PORT || 5000;
+const DB_HOST = process.env.DB_HOST;
 
-const {ApolloServer, gql} = require("apollo-server-express");
+const db = require('./db');
+const models = require('./models');
+db.connect(DB_HOST);
 
-const typeDefs = gql`
-    type Query {
-        hello: String!
-        notes: [Note!]!
-        note(id: ID!): Note
+const {ApolloServer} = require("apollo-server-express");
+const typeDefs = require('./schema');
+const resolvers = require('./resolvers');
+const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    context: () => {
+        return {models};
     }
-    type Note {
-        id: ID!
-        content: String!
-        author: String!
-    }
-    type Mutation {
-        newNote(content: String!): Note!
-    }
-`;
-const resolvers = {
-    Query: {
-        hello: () => 'Hello world!',
-        notes: () => notes,
-        note: (parent, args) => {
-            return notes.find(note => note.id === args.id);
-        }
-    },
-    Mutation: {
-        newNote: (parent, args) => {
-            let noteValue = {
-                id: String(notes.length + 1),
-                content: args.content,
-                author: 'Михалков'
-            }
-            notes.push(noteValue);
-            return noteValue;
-        }
-    }
-};
-
-let notes = [
-    {id: '1', content: 'Однажды в студёную, зимнюю пору...', author: 'Тургенев'},
-    {id: '2', content: 'Скажи-ка, дядя, ведь не даром...', author: 'Лермонтов'},
-    {id: '3', content: 'Мороз и солнце. День чудесный!', author: 'Пушкин'}
-];
-
-const server = new ApolloServer({typeDefs, resolvers});
+});
 server.applyMiddleware({app, path: '/api'});
 
 app.get('/', (req, res) => res.send('Hello world!!!'));
-app.listen({port}, () => console.log(`GraphQL Server running at http://localhost:${port}${server.graphqlPath}`));
+let dateNow = new Date();
+app.listen({port}, () => console.log(`[${dateNow}] GraphQL Server running at http://localhost:${port}${server.graphqlPath}`));
