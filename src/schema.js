@@ -21,18 +21,15 @@ module.exports = gql`
     }
     type Query {
         read(id: ID!, resource: Resource, destination: String, name: String, methodName: String): Option!
-        readAll(author: String): [Option!]!
+        readAll(resource: Resource, name: String, destination: String, baseURL: String, author: String): [Option!]!
     }
     input Options {
-        id: ID
         resource: Resource!
         name: String!
         methodName: String!
         destination: String!
         baseURL: String!
         author: String!
-        createdAt: DateTime!
-        updatedAt: DateTime!
     }
     type Mutation {
         save(id: ID, resource: Resource!, destination: String!, name: String!, methodName: String, baseURL: String!, author: String!): Option!

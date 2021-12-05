@@ -1,5 +1,5 @@
 module.exports = {
-    save: async (parent, args, {models}) => {
+    save: async (parent, args, {models, updateNginx}) => {
         let resource = args.resource;
         let methodName = (args.methodName == undefined) ? '' : args.methodName;
         let destination = args.destination;
@@ -7,12 +7,11 @@ module.exports = {
         let baseURL = args.baseURL;
         let author = args.author;
 
-        // search by id
-        if (args.id != undefined) {
-            let option = models.Option.findById(args.id);
+        let option = null;
 
-            if (option) {
-                return models.Option.findOneAndUpdate(
+        // search by id
+        if (args.id) {
+            option = models.Option.findOneAndUpdate(
                     {
                         _id: args.id
                     },
@@ -27,23 +26,12 @@ module.exports = {
                         }
                     },
                     {
-                        new: false
-                    })
-            }
-        }
-
-        // search by key-fields
-        let option = models.Option.find({
-            resource: resource,
-            destination: destination,
-            name: name,
-            methodName: methodName
-        });
-
-        //todo: проверить почему не работает new: true - разобраться
-        // тогда убрать поиск Настройки выше и создание Настройки ниже
-        if (option) {
-            return models.Option.findOneAndUpdate(
+                        upsert: false,
+                        returnOriginal: false
+                    });
+            // }
+        } else {
+            option = models.Option.findOneAndUpdate(
                 {
                     resource: resource,
                     destination: destination,
@@ -61,34 +49,51 @@ module.exports = {
                     }
                 },
                 {
-                    new: true
+                    upsert: true,
+                    returnOriginal: false
                 })
         }
 
-        return await models.Option.create({
-            resource: resource,
-            name: name,
-            methodName: methodName,
-            destination: destination,
-            baseURL: baseURL,
-            author: author
-        });
+        //todo: определять достоверно изменилось ли что-нибудь в базе, и пересобирать файл locations только, если изменилось
+        if (option) {
+            updateNginx();
+            return option;
+        }
     },
-    saveAll: async (parent, args, {models}) => {
-        //todo: вставить проверку наличия аргумента options
-        // если найден, удалить все и создать новые Настройки
+    saveAll: async (parent, args, {models, updateNginx}) => {
+        if (args.options) {
+            models.Option.deleteMany({}, function (err) {
+                if (err)
+                    console.log(err);
+                else {
+                    models.Option.insertMany(args.options, function(err) {
+                        if (err)
+                            console.log(err);
+                    });
+                }
+            })
+        }
+        updateNginx();
+        //todo: разобраться как сначала выполнить действия над базой, чтобы вернуть нормальный ответ, а то всегда true
         return true;
     },
-    remove: async (parent, {id}, {models}) => {
+    remove: async (parent, {id}, {models, updateNginx}) => {
         try {
             await models.Option.findOneAndRemove({_id: id});
+            updateNginx();
+            //todo: разобраться как сначала выполнить действия над базой, чтобы вернуть нормальный ответ, а то всегда true
             return true;
         } catch (err) {
             return false;
         }
     },
-    removeAll: async (parent, {models}) => {
-        //todo: вставить удаление всех Настроек
+    removeAll: async (parent, {models, updateNginx}) => {
+        models.Option.deleteMany({}, function (err) {
+            if (err)
+                console.log(err);
+        })
+        updateNginx();
+        //todo: разобраться как сначала выполнить действия над базой, чтобы вернуть нормальный ответ, а то всегда true
         return true;
     }
 };

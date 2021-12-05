@@ -20,7 +20,7 @@
     ]
   },
   "keywords": [],
-  "author": "Dmitry Fomichev",
+  "author": "Dmitry Fomichev <samoletische@yandex.ru>",
   "license": "MIT",
   "dependencies": {
     "apollo-server-express": "^2.25.3",
@@ -49,6 +49,7 @@
     "eslint-plugin-prettier": "3.0.1",
     "faker": "4.1.0",
     "node-fetch": "^2.6.6",
-    "prettier": "1.18.2"
+    "prettier": "1.18.2",
+    "react-dom": "^17.0.2"
   }
 }

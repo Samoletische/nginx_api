@@ -3,6 +3,7 @@ const express = require("express");
 const helmet = require('helmet');
 const cors = require('cors');
 const app = express();
+
 app.use(helmet());
 app.use(cors());
 
@@ -13,6 +14,8 @@ const db = require('./db');
 const models = require('./models');
 db.connect(DB_HOST);
 
+const updateNginx = require("./nginxConf");
+
 const {ApolloServer} = require("apollo-server-express");
 const typeDefs = require('./schema');
 const resolvers = require('./resolvers');
@@ -20,7 +23,7 @@ const server = new ApolloServer({
     typeDefs,
     resolvers,
     context: () => {
-        return {models};
+        return {models, updateNginx};
     }
 });
 server.applyMiddleware({app, path: '/api'});
