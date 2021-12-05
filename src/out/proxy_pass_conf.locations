@@ -1,0 +1,12 @@
+location = /pb/dlc/ElectronicRecord {
+	proxy_pass http://m1-ctx-4009/gp_dlt
+}
+
+location = /pb/dlt/ElectronicRecord {
+	proxy_pass http://m1-ctx-4009/gp_dlt
+}
+
+location = /pb/tms/ElectronicRecord {
+	proxy_pass http://m1-ctx-4009/gp_dlt
+}
+
