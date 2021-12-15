@@ -1,0 +1,4 @@
+location = /pb/tms/ElectronicRecord {
+	proxy_pass http://localhost:8080/;
+}
+
