@@ -1,12 +1,16 @@
 location = /pb/dlc/ElectronicRecord {
-	proxy_pass http://m1-ctx-4009/gp_dlt
+	proxy_pass http://localhost:8080/;
 }
 
 location = /pb/dlt/ElectronicRecord {
-	proxy_pass http://m1-ctx-4009/gp_dlt
+	proxy_pass http://localhost:8080/;
+}
+
+location = /pb/dlt/ElectronicRecord9 {
+	proxy_pass http://localhost:8080/;
 }
 
 location = /pb/tms/ElectronicRecord {
-	proxy_pass http://m1-ctx-4009/gp_dlt
+	proxy_pass http://localhost:8080/;
 }
 

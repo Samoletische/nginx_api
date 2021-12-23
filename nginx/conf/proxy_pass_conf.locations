@@ -1,4 +1,20 @@
-location = /pb/tms/ElectronicRecord {
-	proxy_pass http://localhost:8080/;
+location = /pb/dlt/ElectronicRecord {
+	rewrite ^.*$ http://localhost:8080/ws/data-receiving.1cws;
+}
+
+location = /pb/dlt/ElectronicRecord12 {
+	rewrite ^.*$ http://localhost:8080/ws/data-receiving.1cws;
+}
+
+location = /pb/dlt/ElectronicRecord13 {
+	rewrite ^.*$ http://m1-ctx-4009:8080/ws/data-receiving.1cws;
+}
+
+location = /pb/dlt/ElectronicRecord2 {
+	rewrite ^.*$ http://localhost:8080/ws/data-receiving.1cws;
+}
+
+location = /pb/dlt/ElectronicRecord3 {
+	rewrite ^.*$ http://localhost:8080/ws/data-receiving.1cws;
 }
 

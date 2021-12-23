@@ -1,8 +1,8 @@
 module.exports = {
-    read: async (parent, {id}, {models}) => {
-        return await models.Option.findById(id);
+    read: (parent, {id}, {models}) => {
+        return models.Option.findById(id);
     },
-    readAll: async (parent, args, {models}) => {
+    readAll: (parent, args, {models}) => {
         if (args.resource == '')
             delete args.resource;
         if (args.name == '')
@@ -14,6 +14,6 @@ module.exports = {
         if (args.author == '')
             delete args.author;
 
-        return await models.Option.find(args);
+        return models.Option.find(args);
     }
 };

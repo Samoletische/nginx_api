@@ -1,5 +1,5 @@
 module.exports = {
-    save: async (parent, args, {models, updateNginx}) => {
+    save: (parent, args, {models, updateNginx}) => {
         let resource = args.resource;
         let methodName = (args.methodName == undefined) ? '' : args.methodName;
         let destination = args.destination;
@@ -28,6 +28,10 @@ module.exports = {
                     {
                         upsert: false,
                         returnOriginal: false
+                    }, function(err, result) {
+                        if (err) return "find by id error";
+                        updateNginx();
+                        //return result;
                     });
             // }
         } else {
@@ -51,49 +55,41 @@ module.exports = {
                 {
                     upsert: true,
                     returnOriginal: false
+                }, function (err, result) {
+                    if (err) return "find by measures error";
+                    updateNginx();
                 })
         }
-
-        //todo: определять достоверно изменилось ли что-нибудь в базе, и пересобирать файл locations только, если изменилось
-        if (option) {
-            updateNginx();
-            return option;
-        }
+        return option;
     },
-    saveAll: async (parent, args, {models, updateNginx}) => {
+    saveAll: (parent, args, {models, updateNginx}) => {
         if (args.options) {
             models.Option.deleteMany({}, function (err) {
-                if (err)
-                    console.log(err);
-                else {
-                    models.Option.insertMany(args.options, function(err) {
-                        if (err)
-                            console.log(err);
-                    });
-                }
+                if (err) return "all remove in saveAll error";
+                models.Option.insertMany(args.options, function(err) {
+                    if (err) return "all insert error";
+                    updateNginx();
+                });
             })
         }
-        updateNginx();
-        //todo: разобраться как сначала выполнить действия над базой, чтобы вернуть нормальный ответ, а то всегда true
         return true;
     },
-    remove: async (parent, {id}, {models, updateNginx}) => {
+    remove: (parent, {id}, {models, updateNginx}) => {
         try {
-            await models.Option.findOneAndRemove({_id: id});
-            updateNginx();
-            //todo: разобраться как сначала выполнить действия над базой, чтобы вернуть нормальный ответ, а то всегда true
+            models.Option.findOneAndRemove({_id: id}, null,function(err, result) {
+               if (err) return "remove error";
+                updateNginx();
+            });
             return true;
         } catch (err) {
             return false;
         }
     },
-    removeAll: async (parent, {models, updateNginx}) => {
+    removeAll: (parent, {models, updateNginx}) => {
         models.Option.deleteMany({}, function (err) {
-            if (err)
-                console.log(err);
-        })
-        updateNginx();
-        //todo: разобраться как сначала выполнить действия над базой, чтобы вернуть нормальный ответ, а то всегда true
+            if (err) return "all remove error";
+            updateNginx();
+        });
         return true;
     }
 };

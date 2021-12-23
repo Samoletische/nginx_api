@@ -1,0 +1,71 @@
+2021/12/11 15:30:38 [emerg] 51#51: host not found in upstream "m1-ctx-4009" in /usr/local/openresty/nginx/conf/proxy_pass_conf.locations:2
+2021/12/11 15:35:03 [notice] 51#51: signal process started
+2021/12/11 15:38:50 [notice] 81#81: signal process started
+2021/12/11 15:38:50 [alert] 81#81: kill(51, 1) failed (3: No such process)
+2021/12/11 15:39:09 [notice] 85#85: signal process started
+2021/12/11 15:39:12 [notice] 87#87: signal process started
+2021/12/11 15:45:48 [error] 16#16: *1 open() "/var/www/1" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /1 HTTP/1.1", host: "localhost:8080"
+2021/12/11 15:45:51 [error] 16#16: *1 open() "/var/www/1" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /1 HTTP/1.1", host: "localhost:8080"
+2021/12/11 15:46:07 [notice] 53#53: signal process started
+2021/12/11 15:46:39 [error] 16#16: *2 open() "/var/www/pb/tms/ElectronicRecord1" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /pb/tms/ElectronicRecord1 HTTP/1.1", host: "localhost:8080"
+2021/12/11 15:57:43 [notice] 155#155: signal process started
+2021/12/11 15:57:51 [error] 156#156: *40 open() "/var/www/pb/tms/ElectronicRecord" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /pb/tms/ElectronicRecord HTTP/1.1", host: "localhost:8080"
+2021/12/11 15:57:53 [error] 156#156: *40 open() "/var/www/pb/tms/ElectronicRecord" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /pb/tms/ElectronicRecord HTTP/1.1", host: "localhost:8080"
+2021/12/11 15:57:53 [error] 156#156: *40 open() "/var/www/pb/tms/ElectronicRecord" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /pb/tms/ElectronicRecord HTTP/1.1", host: "localhost:8080"
+2021/12/11 15:57:54 [error] 156#156: *40 open() "/var/www/pb/tms/ElectronicRecord" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /pb/tms/ElectronicRecord HTTP/1.1", host: "localhost:8080"
+2021/12/11 15:58:10 [error] 156#156: *40 open() "/var/www/pb/dlt/ElectronicRecord" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /pb/dlt/ElectronicRecord HTTP/1.1", host: "localhost:8080"
+2021/12/11 15:58:17 [notice] 158#158: signal process started
+2021/12/11 15:58:22 [error] 156#156: *43 open() "/var/www/pb/dlt/ElectronicRecord" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /pb/dlt/ElectronicRecord HTTP/1.1", host: "localhost:8080"
+2021/12/11 15:58:24 [error] 159#159: *50 open() "/var/www/pb/dlt/ElectronicRecord" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /pb/dlt/ElectronicRecord HTTP/1.1", host: "localhost:8080"
+2021/12/11 15:58:26 [error] 159#159: *50 open() "/var/www/pb/dlt/ElectronicRecord" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /pb/dlt/ElectronicRecord HTTP/1.1", host: "localhost:8080"
+2021/12/11 15:58:27 [error] 159#159: *50 open() "/var/www/pb/dlt/ElectronicRecord" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /pb/dlt/ElectronicRecord HTTP/1.1", host: "localhost:8080"
+2021/12/11 15:58:28 [error] 159#159: *50 open() "/var/www/pb/dlt/ElectronicRecord" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /pb/dlt/ElectronicRecord HTTP/1.1", host: "localhost:8080"
+2021/12/11 15:58:31 [error] 159#159: *50 open() "/var/www/pb/dlt/ElectronicRecord" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /pb/dlt/ElectronicRecord HTTP/1.1", host: "localhost:8080"
+2021/12/11 15:58:36 [error] 159#159: *50 open() "/var/www/pb/dlt/ElectronicRecord" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /pb/dlt/ElectronicRecord HTTP/1.1", host: "localhost:8080"
+2021/12/11 15:58:49 [notice] 161#161: signal process started
+2021/12/11 15:58:54 [error] 159#159: *51 open() "/var/www/pb/dlt/ElectronicRecord" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /pb/dlt/ElectronicRecord HTTP/1.1", host: "localhost:8080"
+2021/12/11 15:59:10 [notice] 164#164: signal process started
+2021/12/11 15:59:26 [notice] 167#167: signal process started
+2021/12/11 16:02:27 [notice] 343#343: signal process started
+2021/12/11 16:02:56 [notice] 346#346: signal process started
+2021/12/11 16:38:59 [notice] 349#349: signal process started
+2021/12/11 16:39:07 [notice] 352#352: signal process started
+2021/12/11 16:39:16 [notice] 355#355: signal process started
+2021/12/15 05:26:08 [notice] 48#48: signal process started
+2021/12/15 05:26:30 [notice] 51#51: signal process started
+2021/12/15 05:27:24 [notice] 61#61: signal process started
+2021/12/15 05:27:57 [error] 62#62: *1 open() "/var/www/favicon.ico" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/"
+2021/12/15 05:29:27 [error] 62#62: *4 open() "/var/www/pb/dlt/ElectronicRecord1" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /pb/dlt/ElectronicRecord1 HTTP/1.1", host: "localhost:8080"
+2021/12/15 05:29:45 [notice] 64#64: signal process started
+2021/12/15 05:29:46 [notice] 67#67: signal process started
+2021/12/15 05:30:27 [error] 68#68: *7 open() "/var/www/pb/dlt/ElectronicRecord1" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /pb/dlt/ElectronicRecord1 HTTP/1.1", host: "localhost:8080"
+2021/12/15 05:31:46 [notice] 70#70: signal process started
+2021/12/15 05:33:03 [notice] 73#73: signal process started
+2021/12/15 05:33:08 [notice] 76#76: signal process started
+2021/12/15 16:26:12 [notice] 48#48: signal process started
+2021/12/15 16:26:35 [emerg] 51#51: duplicate location "/pb/dlt/ElectronicRecord10" in /usr/local/openresty/nginx/conf/proxy_pass_conf.locations:9
+2021/12/15 16:26:45 [emerg] 53#53: duplicate location "/pb/dlt/ElectronicRecord10" in /usr/local/openresty/nginx/conf/proxy_pass_conf.locations:9
+2021/12/15 16:27:00 [emerg] 55#55: duplicate location "/pb/dlt/ElectronicRecord10" in /usr/local/openresty/nginx/conf/proxy_pass_conf.locations:9
+2021/12/15 16:36:05 [emerg] 57#57: duplicate location "/pb/dlt/ElectronicRecord10" in /usr/local/openresty/nginx/conf/proxy_pass_conf.locations:9
+2021/12/15 16:36:25 [emerg] 59#59: duplicate location "/pb/dlt/ElectronicRecord10" in /usr/local/openresty/nginx/conf/proxy_pass_conf.locations:9
+2021/12/15 16:36:26 [emerg] 61#61: duplicate location "/pb/dlt/ElectronicRecord10" in /usr/local/openresty/nginx/conf/proxy_pass_conf.locations:9
+2021/12/15 16:36:43 [emerg] 63#63: duplicate location "/pb/dlt/ElectronicRecord10" in /usr/local/openresty/nginx/conf/proxy_pass_conf.locations:9
+2021/12/15 16:37:43 [emerg] 70#70: duplicate location "/pb/dlt/ElectronicRecord10" in /usr/local/openresty/nginx/conf/proxy_pass_conf.locations:9
+2021/12/15 16:43:50 [emerg] 139#139: host not found in upstream "m1-ctx-4009" in /usr/local/openresty/nginx/conf/proxy_pass_conf.locations:2
+2021/12/15 16:44:26 [emerg] 140#140: invalid number of arguments in "rewrite" directive in /usr/local/openresty/nginx/conf/proxy_pass_conf.locations:2
+2021/12/15 16:47:19 [notice] 144#144: signal process started
+2021/12/15 16:47:28 [error] 145#145: *2 open() "/var/www/favicon.ico" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/"
+2021/12/15 16:47:59 [notice] 146#146: signal process started
+2021/12/15 16:48:06 [error] 147#147: *3 open() "/var/www/1" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /1 HTTP/1.1", host: "localhost:8080"
+2021/12/15 16:48:28 [notice] 148#148: signal process started
+2021/12/15 16:48:33 [error] 149#149: *5 open() "/var/www/1" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /1 HTTP/1.1", host: "localhost:8080"
+2021/12/15 16:48:40 [notice] 150#150: signal process started
+2021/12/15 16:49:10 [error] 151#151: *6 open() "/var/www/pb/dlt/ElectronicRecord4" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /pb/dlt/ElectronicRecord4 HTTP/1.1", host: "localhost:8080"
+2021/12/15 16:49:21 [notice] 152#152: signal process started
+2021/12/15 16:49:30 [error] 151#151: *7 open() "/var/www/pb/dlt/ElectronicRecord4" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /pb/dlt/ElectronicRecord4 HTTP/1.1", host: "localhost:8080"
+2021/12/15 16:49:56 [notice] 154#154: signal process started
+2021/12/15 16:50:31 [notice] 156#156: signal process started
+2021/12/15 16:51:38 [emerg] 205#205: duplicate location "/pb/dlt/ElectronicRecord10" in /usr/local/openresty/nginx/conf/proxy_pass_conf.locations:9
+2021/12/15 16:52:20 [emerg] 207#207: duplicate location "/pb/dlt/ElectronicRecord10" in /usr/local/openresty/nginx/conf/proxy_pass_conf.locations:9
+2021/12/15 16:53:12 [emerg] 208#208: duplicate location "/pb/dlt/ElectronicRecord10" in /usr/local/openresty/nginx/conf/proxy_pass_conf.locations:9
+2021/12/15 16:53:30 [notice] 209#209: signal process started
